@@ -1,7 +1,7 @@
 const { fetch, fetchAll } = require('../../lib/postgres')
 
 const new_user = `
-    INERT INTO 
+    INSERT INTO 
         users(
             user_name,
             user_password
