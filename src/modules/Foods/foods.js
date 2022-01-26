@@ -34,10 +34,10 @@ module.exports = {
             const {restaran_id} = req.query
             console.log(restaran_id)
             const rows = await model.Foods(restaran_id) 
-            if(rows) {
+            if(rows.length) {
                 res.send(rows)
             }else {
-                res.send("bosh")
+                res.send([rows])
             }
         }catch (e) {
             console.log(e)
