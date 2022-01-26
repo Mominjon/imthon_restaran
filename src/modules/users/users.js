@@ -34,26 +34,18 @@ module.exports = {
     },
     Login_user: async(req, res) => {
         try {
-            const {token} = req.body
-            const user = verifyUser(token) 
-            if(user[1] == "admin") {
-                const {username, userpassword} = req.body
-                const rows = await model.Login_admin(username, userpassword)
-                if(rows) {
-                    res.send(signUser(rows, "admin"))
-                }else {
-                    res.send("user not found")
-                }
-            }else {
                 const {username, userpassword} = req.body
                 const rows = await model.Login_user(username, userpassword)
                 if(rows) {
                     res.send(signUser(rows,"user"))
                 }else {
-                    res.send("user not found")
+                    const admin = await model.Login_admin(username, userpassword)
+                    if(admin) {
+                        res.send(signUser(rows, "admin"))
+                    }else {
+                        res.send("user not found")
+                    }
                 }
-            }
-            
         }catch (e) {
             console.log(e)
         }
