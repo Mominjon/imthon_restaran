@@ -41,7 +41,7 @@ module.exports = {
                 }else {
                     const admin = await model.Login_admin(username, userpassword)
                     if(admin) {
-                        res.send(signUser(JSON.stringify([admin, "admin"])))
+                        res.send(JSON.stringify([signUser(JSON.stringify([admin, "admin"]))], "admin"))
                     }else {
                         res.send("user not found")
                     }
