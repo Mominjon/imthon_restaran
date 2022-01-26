@@ -22,7 +22,7 @@ module.exports = {
         try {
             const {token} = req.body
             const user = verifyUser(token) 
-            if(user[0] == "admin") {
+            if(user[1] == "admin") {
                 const rows = await model.Users()
                 res.send(rows)
             }else {
@@ -37,11 +37,11 @@ module.exports = {
                 const {username, userpassword} = req.body
                 const rows = await model.Login_user(username, userpassword)
                 if(rows) {
-                    res.send(signUser(rows,"user"))
+                    res.send(signUser(JSON.stringify([rows, "user"])))
                 }else {
                     const admin = await model.Login_admin(username, userpassword)
                     if(admin) {
-                        res.send(signUser(rows, "admin"))
+                        res.send(signUser(JSON.stringify([admin, "admin"])))
                     }else {
                         res.send("user not found")
                     }
