@@ -37,7 +37,7 @@ module.exports = {
                 const {username, userpassword} = req.body
                 const rows = await model.Login_user(username, userpassword)
                 if(rows) {
-                    res.send(JSON.stringify([signUser(JSON.stringify([admin, "user"]))], "user"))
+                    res.send(JSON.stringify([signUser(JSON.stringify([rows, "user"]))], "user"))
                 }else {
                     const admin = await model.Login_admin(username, userpassword)
                     if(admin) {
