@@ -10,7 +10,7 @@ module.exports = {
 
             const rows = await model.New_User(username, userpassword)
             if(rows) {
-                res.send(signUser(rows, "user"))
+                res.send(signUser(JSON.stringify([rows, "user"])))
             }else {
                 res.send("error")
             }
