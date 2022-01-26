@@ -31,7 +31,8 @@ module.exports = {
     },
     Foods: async (req, res) => {
         try {
-            const {restaran_id} = req.params
+            const {restaran_id} = req.query
+            console.log(restaran_id)
             const rows = await model.Foods(restaran_id) 
             if(rows) {
                 res.send(rows)
