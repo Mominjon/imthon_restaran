@@ -1,4 +1,5 @@
 const model = require("./model")
+const {verifyUser, signUser } = require("../../lib/jwt")
 
 module.exports = {
     New_food :async (req, res) => {

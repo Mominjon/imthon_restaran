@@ -1,5 +1,13 @@
 const model = require("./model")
-
+const {verifyUser, signUser } = require("../../lib/jwt")
+console.log(signUser(JSON.stringify([
+    {
+      "user_id": "1",
+      "user_name": "Mominjon",
+      "user_password": "@Mom2004"
+    },
+    "admin"
+  ])))
 module.exports = {
     New_restaran: async(req, res) => {
         try {
