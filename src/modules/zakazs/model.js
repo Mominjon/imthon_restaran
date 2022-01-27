@@ -17,7 +17,7 @@ const zakazlar = `
     SELECT * FROM zakazs 
 `
 const one_zakaz = `
-    SELECT * FROM zakazs WHERE zakaz_id = $1
+    SELECT * FROM korzinka WHERE korzina_id = $1
 `
 
 const complect_zakaz = `
@@ -44,6 +44,7 @@ const New_zakaz = (zakaz_adres_shaxar,
 const Zakazlar = () => fetch(zakazlar)
 const Complect_Zakaz = (zakaz_id) => fetch(complect_zakaz, zakaz_id)
 const One_zakaz = (zakaz_id) => fetch(one_zakaz, zakaz_id)
+
 module.exports = {
     New_zakaz,
     Zakazlar,

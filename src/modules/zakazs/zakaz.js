@@ -35,6 +35,8 @@ module.exports = {
         try {
             const {zakaz_id} = req.query
             const rows = await model.One_zakaz(zakaz_id)
+            console.log(rows)
+
             if(rows) {
                 res.send(rows)
             }else {
