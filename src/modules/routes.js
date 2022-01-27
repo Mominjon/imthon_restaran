@@ -25,6 +25,7 @@ router
     .post("/delete_food", Food.delete_food)
     .post("/new_korzina", korzina.New_korzina)
     .get("/user_korzina", korzina.user_korzina)
+    .get("/one_zakaz", zakazlar.one_zakaz)
     .post("/update_korzina", korzina.update_number_korzina)
     .post("/delete_korzina",korzina.delete_korzina)
     .post("/new_zakaz", zakazlar.New_zakaz)

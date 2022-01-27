@@ -16,6 +16,9 @@ const new_zakaz = `
 const zakazlar = `
     SELECT * FROM zakazs 
 `
+const one_zakaz = `
+    SELECT * FROM zakazs WHERE zakaz_id = $1
+`
 
 const complect_zakaz = `
     UPDATE zakazs SET is_complect = 'true' WHERE zakaz_id = $1
@@ -40,9 +43,10 @@ const New_zakaz = (zakaz_adres_shaxar,
         is_complect)
 const Zakazlar = () => fetch(zakazlar)
 const Complect_Zakaz = (zakaz_id) => fetch(complect_zakaz, zakaz_id)
-
+const One_zakaz = (zakaz_id) => fetch(one_zakaz, zakaz_id)
 module.exports = {
     New_zakaz,
     Zakazlar,
-    Complect_Zakaz
+    Complect_Zakaz,
+    One_zakaz
 }
