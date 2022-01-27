@@ -10,7 +10,7 @@ module.exports = {
             const user = verifyUser(token)
             const rows = model.New_Korzina(user[0].user_id, korzina_food, korzina_number)
             if(rows) {
-                res.send("ok")
+                res.send(JSON.stringify(rows))
             }else {
                 res.send("error")
             }
