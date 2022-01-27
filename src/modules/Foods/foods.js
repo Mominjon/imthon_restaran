@@ -45,7 +45,7 @@ module.exports = {
     },
     one_Food: async (req, res) => {
         try {
-            const {food_id} = req.params
+            const {food_id} = req.query
             const rows = await model.one_Food(food_id)
             if(rows){
                 res.send(rows)

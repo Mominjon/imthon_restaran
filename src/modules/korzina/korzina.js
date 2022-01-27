@@ -20,7 +20,7 @@ module.exports = {
     },
     user_korzina: async (req, res) => {
         try {
-            const {token} = req.params
+            const {token} = req.query
             const user = verifyUser(token)
             const rows = await model.User_Korzina(user[0].user_id)
             res.send(rows)
