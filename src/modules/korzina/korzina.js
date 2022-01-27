@@ -23,7 +23,11 @@ module.exports = {
             const {token} = req.query
             const user = verifyUser(token)
             const rows = await model.User_Korzina(user[0].user_id)
-            res.send(rows)
+            if(rows){
+                res.send(rows)
+            }else {
+                res.send("bosh")
+            }
         }catch (e) {
             console.log(e)
         }
