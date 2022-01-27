@@ -1,7 +1,7 @@
 const { fetch, fetchAll } = require('../../lib/postgres')
 
 const new_korzina = `
-    INSER INTO korzinka (
+    INSERT INTO korzinka (
         korzina_user,
         korzina_food,
         korzina_number
