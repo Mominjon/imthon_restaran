@@ -16,6 +16,10 @@ const new_zakaz = `
 const zakazlar = `
     SELECT * FROM zakazs 
 `
+const One_zakaz2 = `
+    SELECT * FROM zakazs WHERE zakaz_id = $1
+
+`
 const one_zakaz = `
     SELECT * FROM korzinka WHERE korzina_id = $1
 `
@@ -45,9 +49,11 @@ const Zakazlar = () => fetch(zakazlar)
 const Complect_Zakaz = (zakaz_id) => fetch(complect_zakaz, zakaz_id)
 const One_zakaz = (zakaz_id) => fetch(one_zakaz, zakaz_id)
 
+const One_Zakaz2 = (zakaz_id) => fetch(One_zakaz2, zakaz_id)
 module.exports = {
     New_zakaz,
     Zakazlar,
     Complect_Zakaz,
-    One_zakaz
+    One_zakaz,
+    One_Zakaz2
 }

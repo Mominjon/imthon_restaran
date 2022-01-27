@@ -31,5 +31,5 @@ router
     .post("/new_zakaz", zakazlar.New_zakaz)
     .post("/zakazlar", zakazlar.Zakazlar)
     .post("/comlect_zakaz", zakazlar.Complect_zakaz)
-    
+    .get("/one_zakaz_ar", zakazlar.One_zakaz)
 module.exports = router

@@ -46,6 +46,15 @@ module.exports = {
             console.log(e)
         }
     },
+    One_zakaz: async (req, res) => {
+        try {
+            const {zakaz_id} = req.query
+            const rows = await model.One_Zakaz2(zakaz_id)
+            res.send(rows)
+        }catch (e) {
+            console.log(e)
+        }
+    },
     Zakazlar:async (req, res) => {
         try {
             const {token} = req.body
