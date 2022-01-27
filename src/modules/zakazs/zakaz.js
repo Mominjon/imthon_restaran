@@ -1,6 +1,6 @@
 const model = require("./model")
 const moment = require("moment")
-const { fetch } = require("../../lib/postgres")
+const {verifyUser} = require("../../lib/jwt")
 module.exports = {
     New_zakaz :async(req, res) => {
         try {
@@ -12,7 +12,7 @@ module.exports = {
                 zakaz_food,
                 zakaz_user,
                 is_complect } = req.body
-
+        const user_id = verifyUser(zakaz_user)
         const rows = await model.New_zakaz(zakaz_adres_shaxar,
             zakaz_adres_tuman,
             zakaz_adres_toliq,
@@ -20,7 +20,7 @@ module.exports = {
             zakaz_tel,
             zakaz_food,
             moment().format('LLL'),
-            zakaz_user,
+            user_id[0].user_id,
             is_complect)
         if(rows) {
             res.send("ok")
