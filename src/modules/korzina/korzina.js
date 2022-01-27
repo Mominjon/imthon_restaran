@@ -8,7 +8,7 @@ module.exports = {
                 korzina_food,
                 korzina_number} = req.body
             const user = verifyUser(token)
-            const rows = model.New_Korzina(user[0].user_id, korzina_food, korzina_number)
+            const rows = await model.New_Korzina(user[0].user_id, korzina_food, korzina_number)
             if(rows) {
                 res.send(JSON.stringify(rows))
             }else {
