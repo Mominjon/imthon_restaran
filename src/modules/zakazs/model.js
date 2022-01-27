@@ -11,7 +11,7 @@ const new_zakaz = `
         zakaz_clock,
         zakaz_user,
         is_complect
-    ) VALUES ($1, $2, $3, $4, $5, $6, $7 $8, $9) RETURNING *
+    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *
 `
 const zakazlar = `
     SELECT * FROM zakazs 
